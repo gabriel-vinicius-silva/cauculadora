@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
             case "-":
                 resultado = num1 - num2;
                 break;
+            case "*":
+                resultado = num1 * num2;
+                break;
             // Adicione mais casos para outras operações, se necessário
         }
 
@@ -37,13 +40,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // Armazenar o resultado como operando1 para permitir operações subsequentes
         operando1 = resultado.toString();
 
-        // Limpar os operando2 e o operador
+        // Limpar o operando2 e o operador
         operando2 = "";
         operador = "";
     }
 
     // Adicionar eventos de clique aos botões numéricos
-    var botoesNumericos = document.querySelectorAll(".calculadora button:not(#igual)");
+    var botoesNumericos = document.querySelectorAll(".calculadora button:not(#igual):not(#limpar)");
     botoesNumericos.forEach(function (botao) {
         botao.addEventListener("click", function () {
             // Verificar se um operador foi definido
@@ -58,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Adicionar evento de clique ao botão de operador
-    var botoesOperadores = document.querySelectorAll(".calculadora button[data-operador]");
+    // Adicionar eventos de clique aos botões de operador
+    var botoesOperadores = document.querySelectorAll(".calculadora button[data-operador]:not(#igual):not(#limpar)");
     botoesOperadores.forEach(function (botao) {
         botao.addEventListener("click", function () {
             // Se um operador já estiver definido, calcular o resultado antes de definir o novo operador
@@ -68,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Definir o novo operador
-            operador = botao.textContent;
+            operador = botao.getAttribute("data-operador");
 
             // Atualizar o resultado na tela
             atualizarResultado();

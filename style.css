@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Adicionado para corrigir o modelo de caixa */
+    box-sizing: border-box;
 }
 
 .fundo {
@@ -21,6 +21,7 @@
 }
 
 .calculadora {
+    font-family: 'Arial', sans-serif;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 20px;
     border-radius: 10px;
@@ -43,6 +44,8 @@ button {
     background-color: rgb(31, 31, 30);
     border: none;
     color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
 }
 
 button#igual {
@@ -51,6 +54,7 @@ button#igual {
 
 button:hover {
     background-color: rgb(255, 0, 0);
+    color: white;
 }
 
 #resultado {
@@ -62,5 +66,7 @@ button:hover {
     margin-bottom: 10px;
     padding: 5px;
     border-radius: 5px;
-    overflow: hidden; /* Adicionado para evitar que o texto ultrapasse o contêiner */
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
 }
